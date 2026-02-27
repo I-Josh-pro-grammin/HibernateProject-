@@ -4,10 +4,14 @@
 <h2>Students</h2>
 
 <form method="post" action="students">
-    Student Id: <input name="stud_id"/>
+
     First Name: <input name="firstName"/>
     Last Name: <input name="lastName"/>
-    Email: <input name="email"/>
+    SchoolName year: <input type="text" name="schoolName" />
+    Academic year: <input type="text" name="academicYear" />
+
+    Computer: <input type="text" name="laptopDesc" />
+
     <button type="submit">Save</button>
 </form>
 

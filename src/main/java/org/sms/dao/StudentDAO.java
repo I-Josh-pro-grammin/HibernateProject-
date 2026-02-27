@@ -2,14 +2,14 @@ package org.sms.dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.sms.model.Student;
+import org.sms.model.Person;
 import org.sms.util.HibernateUtil;
 
 import java.util.List;
 
 public class StudentDAO {
 
-    public void save(Student student) {
+    public void save(Person student) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
 
@@ -19,9 +19,9 @@ public class StudentDAO {
         session.close();
     }
 
-    public List<Student> getAll() {
+    public List<Person> getAll() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("from Student", Student.class).list();
+            return session.createQuery("from Student", Person.class).list();
         }
     }
 }

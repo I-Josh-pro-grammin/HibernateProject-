@@ -2,56 +2,65 @@ package org.sms.model;
 
 import jakarta.persistence.*;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name = "students")
-public class Student {
+public class Student extends Person {
 
+    private String schoolName;
+    private String academicYear;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Laptop> laptop = new ArrayList<>();
+    private PersonNames names;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    private String firstName;
-    private String lastName;
-    private String email;
-
-    public Student() {
-
+    public Student(String schoolName, String academicYear, List<Laptop> laptop, PersonNames names) {
+        this.schoolName = schoolName;
+        this.academicYear = academicYear;
+        this.laptop = laptop;
+        this.names = names;
     }
 
-    public Student(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
-    // getters & setters
-
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    @Override
+    public void setNames(PersonNames names) {
+        this.names = names;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    @Override
+    public PersonNames getNames() {
+        return names;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public List<Laptop> getLaptop() {
+        return laptop;
     }
 
-    public int getId() {
-        return id;
+    public void setLaptop(List<Laptop> laptop) {
+        this.laptop = laptop;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getSchoolName() {
+        return schoolName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getAcademicYear() {
+        return academicYear;
     }
 
-    public String getEmail() {
-        return email;
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
+    }
+
+    public void setAcademicYear(String academicYear) {
+        this.academicYear = academicYear;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "schoolName='" + schoolName + '\'' +
+                ", academicYear='" + academicYear + '\'' +
+                '}';
     }
 }

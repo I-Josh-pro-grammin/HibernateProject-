@@ -27,7 +27,11 @@
         <property name="hibernate.show_sql">true</property>
 
         <!-- Entity -->
-        <mapping class="org.sms.model.Student"/>
+        <mapping class="org.sms.model.Person"/>
+        <mapping class="org.sms.model.Student" />
+        <mapping class="org.sms.model.Employee" />
+        <mapping class="org.sms.model.Laptop" />
+        <mapping class="org.sms.model.PersonNames" />
 
     </session-factory>
 </hibernate-configuration>
