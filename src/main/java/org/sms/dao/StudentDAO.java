@@ -7,8 +7,10 @@ import org.sms.util.HibernateUtil;
 
 import java.util.List;
 
+//Student dao
 public class StudentDAO {
 
+    //Saving student
     public void save(Person student) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
@@ -19,6 +21,7 @@ public class StudentDAO {
         session.close();
     }
 
+    //Fetching all students
     public List<Person> getAll() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("from Student", Person.class).list();

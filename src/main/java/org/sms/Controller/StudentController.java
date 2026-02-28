@@ -20,6 +20,7 @@ public class StudentController extends HttpServlet {
 
     private StudentDAO dao;
 
+    //Initiailizing servlet
     @Override
     public void init() {
 
@@ -27,6 +28,7 @@ public class StudentController extends HttpServlet {
 
     }
 
+    //Creating The student
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
