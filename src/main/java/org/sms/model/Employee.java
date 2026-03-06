@@ -1,6 +1,5 @@
 package org.sms.model;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
@@ -9,10 +8,13 @@ public class Employee extends Person {
     private double salary;
     private String qualification;
 
+    public Employee() {
+    }
 
-    public Employee(double salary, String qualification) {
+    public Employee(double salary, String qualification, PersonNames names) {
         this.salary = salary;
         this.qualification = qualification;
+        this.setNames(names);
     }
 
     public double getSalary() {

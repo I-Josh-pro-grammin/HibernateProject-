@@ -5,25 +5,27 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 public class PersonNames {
 
-    private String fistName;
+    private String firstName;
     private String lastName;
 
-    public String getFistName() {
-
-        return fistName;
+    public PersonNames() {
     }
 
-    public PersonNames(String fistName, String lastName) {
-        this.fistName = fistName;
+    public PersonNames(String firstName, String lastName) {
+        this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setFistName(String fistName) {
-        this.fistName = fistName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public void setLastName(String lastName) {

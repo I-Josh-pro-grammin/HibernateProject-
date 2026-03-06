@@ -2,7 +2,6 @@ package org.sms.model;
 
 import jakarta.persistence.*;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,23 +12,15 @@ public class Student extends Person {
     private String academicYear;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Laptop> laptop = new ArrayList<>();
-    private PersonNames names;
+
+    public Student() {
+    }
 
     public Student(String schoolName, String academicYear, List<Laptop> laptop, PersonNames names) {
         this.schoolName = schoolName;
         this.academicYear = academicYear;
         this.laptop = laptop;
-        this.names = names;
-    }
-
-    @Override
-    public void setNames(PersonNames names) {
-        this.names = names;
-    }
-
-    @Override
-    public PersonNames getNames() {
-        return names;
+        this.setNames(names);
     }
 
     public List<Laptop> getLaptop() {

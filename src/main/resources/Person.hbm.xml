@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.sms.model">
+    <class name="Person" table="person">
+
+        <id name="personId" column="person_id">
+            <generator class="native"/>
+        </id>
+
+        <component name="names" class="PersonNames">
+            <property name="firstName" column="first_name"/>
+            <property name="lastName" column="last_name"/>
+        </component>
+
+        <joined-subclass name="Student" table="student">
+            <key column="person_id"/>
+            <property name="schoolName" column="school_name"/>
+            <property name="academicYear" column="academic_year"/>
+            <list name="laptop" cascade="all">
+                <key column="person_id"/>
+                <list-index column="idx"/>
+                <one-to-many class="Laptop"/>
+            </list>
+        </joined-subclass>
+
+        <joined-subclass name="Employee" table="employee">
+            <key column="person_id"/>
+            <property name="salary"/>
+            <property name="qualification"/>
+        </joined-subclass>
+
+    </class>
+</hibernate-mapping>

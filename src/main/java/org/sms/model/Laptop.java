@@ -13,6 +13,9 @@ public class Laptop {
     private int laptopId;
     private String laptopDesc;
 
+    public Laptop() {
+    }
+
     public Laptop( String laptopDesc) {
         this.laptopDesc = laptopDesc;
     }
