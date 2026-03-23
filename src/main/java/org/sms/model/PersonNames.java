@@ -1,8 +1,5 @@
 package org.sms.model;
 
-import jakarta.persistence.Embeddable;
-
-@Embeddable
 public class PersonNames {
 
     private String firstName;

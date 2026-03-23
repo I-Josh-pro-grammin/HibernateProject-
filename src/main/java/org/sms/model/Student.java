@@ -1,16 +1,12 @@
 package org.sms.model;
 
-import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 public class Student extends Person {
 
     private String schoolName;
     private String academicYear;
-    @OneToMany(cascade = CascadeType.ALL)
     private List<Laptop> laptop = new ArrayList<>();
 
     public Student() {
