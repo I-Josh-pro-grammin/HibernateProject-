@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
     <session-factory>
@@ -23,8 +23,12 @@
             org.hibernate.dialect.PostgreSQLDialect
         </property>
 
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- This will drop and re-create the database schema on startup -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="hibernate.show_sql">true</property>
+
+        <!-- Enable HBM file transformation for modern Hibernate versions -->
+        <property name="hibernate.transform_hbm_xml.enabled">true</property>
 
         <!-- HBM Mappings -->
         <mapping resource="Person.hbm.xml"/>
