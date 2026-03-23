@@ -1,8 +1,5 @@
 package org.sms.model;
 
-import jakarta.persistence.Entity;
-
-@Entity
 public class Employee extends Person {
 
     private double salary;
